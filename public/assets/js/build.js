@@ -108,7 +108,9 @@ var Build = Class.extend({
             output = $('<div class="box-body"></div>').append(output);
         }
 
-        var container = $('<div></div>').addClass('ui-plugin ' + plugin.css);
+        var rowContainer = $('<div></div>').addClass('col-xs-12');
+        var row = $('<div></div>').addClass('row');
+        var container = $('<div></div>').addClass('ui-plugin col-xs-12' );
         var content = $('<div></div>').attr('id', plugin.id).append(output);
         content.addClass('box box-default');
 
@@ -117,8 +119,10 @@ var Build = Class.extend({
         }
 
         container.append(content);
+        row.append( container );
+        rowContainer.append( row );
 
-        $('#plugins').append(container);
+        $('#plugins').append(rowContainer);
     },
 
     UiPlugin: Class.extend({
